@@ -8,7 +8,7 @@ public class Registro {
 
     private static final String EXCEPCION_CAMPO_OBLIGATORIO = "Este campo es obligatorio";
 
-    private long idRegistro;
+    private long id;
     private String nombreCliente;
     private String cedulaCliente;
     private TipoElectrodomestico tipoElectrodomestico;
@@ -18,7 +18,7 @@ public class Registro {
     private String telefono;
     private double valorPagar;
 
-    public Registro(long idRegistro, String nombreCliente, String cedulaCliente, TipoElectrodomestico tipoElectrodomestico, LocalDate fechaIngreso, LocalDate fechaSalida, boolean estadoRegistro, String telefono, double valorPagar) {
+    public Registro(long id, String nombreCliente, String cedulaCliente, TipoElectrodomestico tipoElectrodomestico, LocalDate fechaIngreso, LocalDate fechaSalida, boolean estadoRegistro, String telefono, double valorPagar) {
         ValidadorArgumento.validarCampoObligatorio(nombreCliente, EXCEPCION_CAMPO_OBLIGATORIO);
         ValidadorArgumento.validarCampoObligatorio(cedulaCliente, EXCEPCION_CAMPO_OBLIGATORIO);
         ValidadorArgumento.validarCampoObligatorio(tipoElectrodomestico, EXCEPCION_CAMPO_OBLIGATORIO);
@@ -26,7 +26,7 @@ public class Registro {
         ValidadorArgumento.validarCampoObligatorio(estadoRegistro, EXCEPCION_CAMPO_OBLIGATORIO);
         ValidadorArgumento.validarCampoObligatorio(telefono, EXCEPCION_CAMPO_OBLIGATORIO);
 
-        this.idRegistro = idRegistro;
+        this.id = id;
         this.nombreCliente = nombreCliente;
         this.cedulaCliente = cedulaCliente;
         this.tipoElectrodomestico = tipoElectrodomestico;
@@ -37,8 +37,8 @@ public class Registro {
         this.valorPagar = valorPagar;
     }
 
-    public long getIdRegistro() {
-        return idRegistro;
+    public long getId() {
+        return id;
     }
 
     public String getNombreCliente() {
