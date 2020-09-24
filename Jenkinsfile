@@ -39,24 +39,17 @@ pipeline {
         ])
       }
     }
-    stage('Build') {
-      steps {
-        echo "------------>Build<------------"
-	
-	dir("TallerElectrodomestico-servidor"){
-          //Construir sin tarea test que se ejecutó previamente
-	   
-           sh 'gradle build -x test'
-	}
-
-      }
+   }
     }
     stage('Tests & coverage') {
       steps {
         echo "------------>Unit Tests<------------"
 	dir("TallerElectrodomestico-servidor"){
-        sh 'gradle test'	
-	sh 'gradle jacocoTestReport'	
+          echo "------------>Cleaning previous compilations<------------"
+                 sh 'gradle --b ./build.gradle clean'
+
+                 echo "------------>Unit Tests<------------"
+                 sh 'gradle --b ./build.gradle test jacocoTestReport'	
 	}
       }
     }
@@ -65,12 +58,24 @@ pipeline {
       steps {
         echo '------------>Análisis de código estático<------------'
         withSonarQubeEnv('Sonar') {
-          sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+          sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
           // sh 'gradle sonarqube'
         }
       }
     }
   }
+ stage('Build') {
+      steps {
+        echo "------------>Build<------------"
+	
+	dir("TallerElectrodomestico-servidor"){
+          //Construir sin tarea test que se ejecutó previamente
+	   
+              //Construir sin tarea test que se ejecutó previamente
+                    sh 'gradle --b ./build.gradle build -x test'
+	}
+
+      
   post {
     always {
       echo 'This will always run'
