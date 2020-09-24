@@ -58,6 +58,7 @@ test {
 	dependsOn 'cleanTest'
 }
 
+/*
 sonarqube {
 	properties {
 		property "sonar.sources", "src/main/java"
@@ -69,6 +70,7 @@ sonarqube {
 	}
 }
 
+ */
 jacocoTestReport {
 	reports {
 		html.enabled = true
