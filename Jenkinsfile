@@ -44,12 +44,10 @@ pipeline {
     stage('Tests & coverage') {
       steps {
         echo "------------>Unit Tests<------------"
-	dir("TallerElectrodomestico-servidor"){
-          echo "------------>Cleaning previous compilations<------------"
-                 sh 'gradle --b ./build.gradle clean'
+	dir("TallerElectrodomestico-servidor"){         
 
                  echo "------------>Unit Tests<------------"
-                 sh 'gradle --b ./build.gradle test jacocoTestReport'	
+                 sh 'gradle  test jacocoTestReport'	
 	}
       }
     }
