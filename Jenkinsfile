@@ -1,99 +1,90 @@
-#!groovy
-
 pipeline {
   //Donde se va a ejecutar el Pipeline
   agent {
     label 'Slave_Induccion'
   }
-  /*triggers {
-    pollSCM('@hourly')
-  }*/
+
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
-    //Mantener artefactos y salida de consola para el # específico de ejecuciones recientes del Pipeline.
-    buildDiscarder(logRotator(numToKeepStr: '3'))
-    //No permitir ejecuciones concurrentes de Pipeline
-    disableConcurrentBuilds()
+    	buildDiscarder(logRotator(numToKeepStr: '3'))
+ 	disableConcurrentBuilds()
   }
-  //Una sección que define las herramientas para “autoinstalar” y poner en la PATH
+
+  //Una sección que define las herramientas “preinstaladas” en Jenkins
   tools {
     jdk 'JDK11_Centos' //Preinstalada en la Configuración del Master
     gradle 'Gradle5.6_Centos' //Preinstalada en la Configuración del Master
   }
+
   //Aquí comienzan los “items” del Pipeline
-  stages {
-    stage('Checkout') {
-      steps {
-        echo "------------>Checkout<------------"
-        checkout([
-          $class: 'GitSCM',
-          branches: [[name: '*/master']],
-          doGenerateSubmoduleConfigurations: false,
-          extensions: [],
-          gitTool: 'Git_Centos',
-          submoduleCfg: [],
-          userRemoteConfigs: [[
-            credentialsId: 'GitHub_sebasagudelo97',
-            url:'https://github.com/sebasagudelo97/electrodomestico'
-          ]]
-        ])
-      }
-    }
-   }
-    }
-    stage('Tests & coverage') {
-      steps {
-        echo "------------>Unit Tests<------------"
-	dir("TallerElectrodomestico-servidor"){         
+  stages{
+        stage('Checkout') {
+              steps{
+                    echo "------------>Checkout<------------"
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/master']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [],
+                        gitTool: 'Default',
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                            credentialsId: 'GitHub_sebasagudelo97',
+                            url:'https://github.com/sebasagudelo97/electrodomestico'
+                        ]]
+                    ])
+
+             }
+        }
+
+        stage('Compile & Unit Tests') {
+              steps{
+
+                 echo "------------>Cleaning previous compilations<------------"
+		dir("TallerElectrodomestico-servidor"){ 
+                 sh 'gradle --b ./build.gradle clean'
 
                  echo "------------>Unit Tests<------------"
-                 sh 'gradle  test jacocoTestReport'	
-	}
-      }
-    }
-
-    stage('Static Code Analysis') {
-      steps {
-        echo '------------>Análisis de código estático<------------'
-        withSonarQubeEnv('Sonar') {
-          sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-          // sh 'gradle sonarqube'
+                 sh 'gradle --b ./build.gradle test jacocoTestReport'
+		}
+             }
         }
-      }
-    }
-	 stage('Build') {
-      steps {
-        echo "------------>Build<------------"
-	
-	dir("TallerElectrodomestico-servidor"){
-          //Construir sin tarea test que se ejecutó previamente
-	   
-              //Construir sin tarea test que se ejecutó previamente
+        stage('Static Code Analysis') {
+              steps{
+                echo '------------>Análisis de código estático<------------'
+                 withSonarQubeEnv('Sonar') {
+                    sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+                  }
+              }
+        }
+        stage('Build') {
+              steps {
+                    echo "------------>Build<------------"
+		dir("TallerElectrodomestico-servidor"){ 
+                    //Construir sin tarea test que se ejecutó previamente
                     sh 'gradle --b ./build.gradle build -x test'
-	}
+		}
+              }
+        }
   }
 
-
-      
   post {
-    always {
-      echo 'This will always run'
-    }
-    success {
-      echo 'This will run only if successful'
-      //junit 'TallerElectrodomestico-servidor/**/build/test-results/test/*.xml'
-    }
-    failure {
-      echo 'This will run only if failed'
-      mail (to: 'sebastian.mejia@ceiba.com.co', subject: "Failed Pipeline:${currentBuild.fullDisplayName}",
-            body: "Something is wrong with ${env.BUILD_URL}")
-    }
-    unstable {
-      echo 'This will run only if the run was marked as unstable'
-    }
-    changed {
-      echo 'This will run only if the state of the Pipeline has changed'
-      echo 'For example, if the Pipeline was previously failing but is now successful'
-    }
+        always {
+            echo 'This will always run'
+        }
+        success {
+            echo 'This will run only if successful'
+        }
+        failure {
+            echo 'This will run only if failed'
+
+        }
+        unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
   }
 }
