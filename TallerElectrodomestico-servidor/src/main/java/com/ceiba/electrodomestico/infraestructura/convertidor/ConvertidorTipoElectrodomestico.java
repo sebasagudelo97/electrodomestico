@@ -3,7 +3,7 @@ package com.ceiba.electrodomestico.infraestructura.convertidor;
 import com.ceiba.electrodomestico.dominio.modelo.TipoElectrodomestico;
 import com.ceiba.electrodomestico.infraestructura.entidad.EntidadTipoElectrodomestico;
 
-public class ConvertidorTipoElectrodomestico {
+public final class ConvertidorTipoElectrodomestico {
 
     private ConvertidorTipoElectrodomestico() { }
 
