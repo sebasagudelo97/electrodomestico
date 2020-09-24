@@ -51,14 +51,16 @@ pipeline {
 
       }
     }
-    stage('Tests') {
+    stage('Tests & coverage') {
       steps {
         echo "------------>Unit Tests<------------"
 	dir("TallerElectrodomestico-servidor"){
-        sh 'gradle test'
+        sh 'gradle test'	
+	sh 'gradle jacocoTestReport'	
 	}
       }
     }
+
     stage('Static Code Analysis') {
       steps {
         echo '------------>Análisis de código estático<------------'
