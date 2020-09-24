@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/registro")
 public class ControladorRegistro {
 
     private final ManejadorCrearRegistro manejadorCrearRegistro;
