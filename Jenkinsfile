@@ -63,8 +63,7 @@ pipeline {
         }
       }
     }
-  }
- stage('Build') {
+	 stage('Build') {
       steps {
         echo "------------>Build<------------"
 	
@@ -74,6 +73,8 @@ pipeline {
               //Construir sin tarea test que se ejecutó previamente
                     sh 'gradle --b ./build.gradle build -x test'
 	}
+  }
+
 
       
   post {
