@@ -3,6 +3,7 @@ package com.ceiba.electrodomestico.infraestructura.entidad;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,11 +13,12 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "registro")
 public class EntidadRegistro {
 
     @Id
-    @Column(name = "in_codigo")
+    @Column
     @GeneratedValue
     private long id;
 
@@ -27,7 +29,7 @@ public class EntidadRegistro {
     private String cedulaCliente;
 
     @ManyToOne
-    @JoinColumn(name = "in_codigo")
+    @JoinColumn
     private EntidadTipoElectrodomestico  entidadTipoElectrodomestico;
 
     @Column(nullable = false)

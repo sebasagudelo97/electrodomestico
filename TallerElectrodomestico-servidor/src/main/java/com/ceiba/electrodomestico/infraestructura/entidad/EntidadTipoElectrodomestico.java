@@ -2,6 +2,7 @@ package com.ceiba.electrodomestico.infraestructura.entidad;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,11 +11,12 @@ import javax.persistence.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tipo_electrodomestico")
 public class EntidadTipoElectrodomestico {
 
     @Id
-    @Column(name = "in_codigo")
+    @Column
     @GeneratedValue
     private long id;
 
