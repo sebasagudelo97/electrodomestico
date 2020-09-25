@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ManejadorActualizarRegistroParaEntrega {
 
+    private static final boolean CAMBIO_DE_ESTADO = true;
     private final ServicioSalidaAEntregaElectrodomestico servicioSalidaAEntregaElectrodomestico;
     private final FabricaRegistro fabricaRegistro;
 
@@ -18,9 +19,9 @@ public class ManejadorActualizarRegistroParaEntrega {
     }
 
     public void ejecutar(ComandoRegistro comandoRegistro, long id){
-        comandoRegistro.setEstadoRegistro(true);
+        comandoRegistro.setEstadoRegistro(CAMBIO_DE_ESTADO);
         comandoRegistro.setId(id);
         Registro registro = this.fabricaRegistro.crear(comandoRegistro);
-        this.servicioSalidaAEntregaElectrodomestico.actualizarYGuardarRegistro(registro, id);
+        this.servicioSalidaAEntregaElectrodomestico.actualizarYGuardarRegistro(registro);
     }
 }
