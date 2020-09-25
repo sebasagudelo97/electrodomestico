@@ -21,13 +21,13 @@ public class ServicioSalidaAEntregaElectrodomestico {
         this.repositorioRegistro = repositorioRegistro;
     }
 
-    public void validarValor(double valor){
+    public  void validarValor(double valor){
         if (valor <= 0){
             throw new ExcepcionValorInvalido(VALOR_INVALIDO);
         }
     }
 
-    public void validarFechaSalida(LocalDate fecha){
+    public  void validarFechaSalida(LocalDate fecha){
         if (fecha == null){
             throw new ExcepcionFechaSalidaNula(FECHA_SALIDA_NULA);
         }
