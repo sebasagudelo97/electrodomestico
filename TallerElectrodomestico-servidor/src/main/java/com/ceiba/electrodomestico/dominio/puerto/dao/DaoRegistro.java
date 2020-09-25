@@ -11,4 +11,5 @@ public interface DaoRegistro {
 
     EntidadRegistro consultarRegistrPorId(long id);
     List<RegistroDto> listarRegistro();
+    List<RegistroDto> listarRegistroListoParaEntrega();
 }

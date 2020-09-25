@@ -32,14 +32,20 @@ public class ControladorRegistro {
     }
 
     @PutMapping(value= "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public void actualizarRegistro(@PathVariable long id){
-        this.manejadorActualizarRegistroParaEntrega.ejecutar(id);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void actualizarRegistro(@PathVariable long id, @RequestBody ComandoRegistro comandoRegistro){
+        this.manejadorActualizarRegistroParaEntrega.ejecutar(comandoRegistro, id);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<RegistroDto> listarRegistro(){
-        return this.manejadorListarRegistro.ejecutar();
+    public List<RegistroDto> listarTodo(){
+        return this.manejadorListarRegistro.listarTodo();
+    }
+
+    @GetMapping(value = "/entrega")
+    @ResponseStatus(HttpStatus.OK)
+    public List<RegistroDto> listarListoParaEntrega(){
+        return this.manejadorListarRegistro.listarListoParaEntregar();
     }
 }

@@ -27,6 +27,13 @@ public class DaoRegistroPostgreSQL implements DaoRegistro {
     }
 
     @Override
+    public List<RegistroDto> listarRegistroListoParaEntrega() {
+        List<EntidadRegistro> entidadRegistro = repositorioRegistroJPA.obtenerRegistrosListoParaEntregar();
+        List<RegistroDto> registroDto = new ArrayList<>();
+        return ConvertidorRegistro.convertirListaRegistroEntidadADto(entidadRegistro,registroDto);
+    }
+
+    @Override
     public EntidadRegistro consultarRegistrPorId(long id) {
         return repositorioRegistroJPA.obtenerRegistroPorId(id);
     }

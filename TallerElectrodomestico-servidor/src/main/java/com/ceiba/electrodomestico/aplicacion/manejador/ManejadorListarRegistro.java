@@ -15,7 +15,11 @@ public class ManejadorListarRegistro {
         this.daoRegistro = daoRegistro;
     }
 
-    public List<RegistroDto> ejecutar(){
+    public List<RegistroDto> listarTodo(){
        return this.daoRegistro.listarRegistro();
+    }
+
+    public List<RegistroDto> listarListoParaEntregar(){
+        return this.daoRegistro.listarRegistroListoParaEntrega();
     }
 }

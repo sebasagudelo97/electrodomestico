@@ -25,7 +25,7 @@ public class ServicioCrearRegistroTest {
         Registro registro = new RegistroTestDataBuilder().build();
         servicioCrearRegistro.ejecutar(registro);
 
-        Assertions.assertEquals(registro.getTipoElectrodomestico().getMarca(), "imusa");
 
+        Assertions.assertEquals(registro.getTipoElectrodomestico().getMarca(), "imusa");
     }
 }
