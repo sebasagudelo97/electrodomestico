@@ -63,4 +63,12 @@ public class ControladorRegistroTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nombreCliente", is("sebastian")));
     }
+
+    @Test
+    public void listarParaEntregaTest() throws Exception{
+        mockMvc.perform(get("/registro/entrega")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].nombreCliente", is("sebastian")));
+    }
 }
