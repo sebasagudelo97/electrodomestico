@@ -22,6 +22,7 @@ public final class ConvertidorRegistro {
         ModelMapper modelMapper = new ModelMapper();
         listaEntidadRegistro.forEach(temporal -> {
             RegistroDto registroDto = modelMapper.map(temporal, RegistroDto.class);
+            registroDto.setTipoElectrodomestico(ConvertidorTipoElectrodomestico.convertirDeEntidadAModelo(temporal.getEntidadTipoElectrodomestico()));
             listaRegistroDto.add(registroDto);
         });
         return listaRegistroDto;

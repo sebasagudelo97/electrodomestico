@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class DaoRegistroPostgreSQL implements DaoRegistro {
 
-    private RepositorioRegistroJPA repositorioRegistroJPA;
+    private final RepositorioRegistroJPA repositorioRegistroJPA;
 
     public DaoRegistroPostgreSQL(RepositorioRegistroJPA repositorioRegistroJPA) {
         this.repositorioRegistroJPA = repositorioRegistroJPA;
@@ -33,8 +33,4 @@ public class DaoRegistroPostgreSQL implements DaoRegistro {
         return ConvertidorRegistro.convertirListaRegistroEntidadADto(entidadRegistro,registroDto);
     }
 
-    @Override
-    public EntidadRegistro consultarRegistrPorId(long id) {
-        return repositorioRegistroJPA.obtenerRegistroPorId(id);
-    }
 }

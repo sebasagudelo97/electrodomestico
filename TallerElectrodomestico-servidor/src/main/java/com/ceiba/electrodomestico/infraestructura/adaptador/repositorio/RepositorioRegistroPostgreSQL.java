@@ -11,8 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class RepositorioRegistroPostgreSQL implements RepositorioRegistro {
 
-    private RepositorioRegistroJPA repositorioRegistroJPA;
-    private ModelMapper modelMapper = new ModelMapper();
+    private final RepositorioRegistroJPA repositorioRegistroJPA;
 
     public RepositorioRegistroPostgreSQL(RepositorioRegistroJPA repositorioRegistroJPA) {
         this.repositorioRegistroJPA = repositorioRegistroJPA;
@@ -20,6 +19,7 @@ public class RepositorioRegistroPostgreSQL implements RepositorioRegistro {
 
     @Override
     public void guardar(Registro registro) {
+        ModelMapper modelMapper = new ModelMapper();
         EntidadTipoElectrodomestico entidadTipoElectrodomestico = modelMapper.map(registro.getTipoElectrodomestico(), EntidadTipoElectrodomestico.class);
         EntidadRegistro entidadRegistro = modelMapper.map(registro, EntidadRegistro.class);
         entidadRegistro.setEntidadTipoElectrodomestico(entidadTipoElectrodomestico);

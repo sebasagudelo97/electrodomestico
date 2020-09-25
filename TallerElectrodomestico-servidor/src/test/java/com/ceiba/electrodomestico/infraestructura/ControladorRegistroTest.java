@@ -1,8 +1,10 @@
 package com.ceiba.electrodomestico.infraestructura;
 
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.Matchers.hasSize;
 
 import com.ceiba.electrodomestico.TallerElectrodomesticoApplication;
 import com.ceiba.electrodomestico.aplicacion.comando.ComandoRegistro;
@@ -52,5 +54,13 @@ public class ControladorRegistroTest {
         mockMvc.perform(post("/registro").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoRegistro)))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void listarTodoTest() throws Exception{
+        mockMvc.perform(get("/registro")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].nombreCliente", is("sebastian")));
     }
 }
