@@ -3,8 +3,8 @@ package com.ceiba.electrodomestico.infraestructura;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.hamcrest.Matchers.hasSize;
 
 import com.ceiba.electrodomestico.TallerElectrodomesticoApplication;
 import com.ceiba.electrodomestico.aplicacion.comando.ComandoRegistro;
@@ -24,11 +24,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.time.LocalDate;
+
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = TallerElectrodomesticoApplication.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 public class ControladorRegistroTest {
+
+    private static final LocalDate FECHA_SALIDA = LocalDate.of(2020,9, 28);
+    private static final double VALOR = 5000;
+    private static final long ID = 1l;
 
     @Autowired
     private WebApplicationContext webApplicationContext;
@@ -70,5 +76,18 @@ public class ControladorRegistroTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nombreCliente", is("sebastian")));
+    }
+
+    @Test
+    public void actualizarRegistroTest() throws Exception{
+
+        ComandoRegistro comandoRegistro = new ComandoRegistroTestDataBuilder().build();
+        comandoRegistro.setFechaSalida(FECHA_SALIDA);
+        comandoRegistro.setValorPagar(VALOR);
+
+        mockMvc.perform(put("/registro/{id}", ID)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(objectMapper.writeValueAsString(comandoRegistro)))
+                    .andExpect(status().is2xxSuccessful());
     }
 }
