@@ -2,10 +2,8 @@ package com.ceiba.electrodomestico.infraestructura.convertidor;
 
 import com.ceiba.electrodomestico.dominio.dto.RegistroDto;
 import com.ceiba.electrodomestico.dominio.modelo.Registro;
-import com.ceiba.electrodomestico.dominio.modelo.TipoElectrodomestico;
 import com.ceiba.electrodomestico.infraestructura.entidad.EntidadRegistro;
 import com.ceiba.electrodomestico.infraestructura.entidad.EntidadTipoElectrodomestico;
-import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
