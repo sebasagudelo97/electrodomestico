@@ -1,4 +1,4 @@
-package com.ceiba.electrodomestico.aplicacion.manejador;
+package com.ceiba.electrodomestico.aplicacion.manejador.registro;
 
 import com.ceiba.electrodomestico.aplicacion.comando.ComandoRegistro;
 import com.ceiba.electrodomestico.aplicacion.fabrica.FabricaRegistro;

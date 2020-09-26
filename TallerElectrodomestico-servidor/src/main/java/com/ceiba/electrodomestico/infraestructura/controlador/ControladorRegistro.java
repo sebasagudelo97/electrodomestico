@@ -1,9 +1,9 @@
 package com.ceiba.electrodomestico.infraestructura.controlador;
 
 import com.ceiba.electrodomestico.aplicacion.comando.ComandoRegistro;
-import com.ceiba.electrodomestico.aplicacion.manejador.ManejadorActualizarRegistroParaEntrega;
-import com.ceiba.electrodomestico.aplicacion.manejador.ManejadorCrearRegistro;
-import com.ceiba.electrodomestico.aplicacion.manejador.ManejadorListarRegistro;
+import com.ceiba.electrodomestico.aplicacion.manejador.registro.ManejadorActualizarRegistroParaEntrega;
+import com.ceiba.electrodomestico.aplicacion.manejador.registro.ManejadorCrearRegistro;
+import com.ceiba.electrodomestico.aplicacion.manejador.registro.ManejadorListarRegistro;
 import com.ceiba.electrodomestico.dominio.dto.RegistroDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

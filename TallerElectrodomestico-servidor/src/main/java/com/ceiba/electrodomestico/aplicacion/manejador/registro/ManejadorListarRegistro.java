@@ -1,4 +1,4 @@
-package com.ceiba.electrodomestico.aplicacion.manejador;
+package com.ceiba.electrodomestico.aplicacion.manejador.registro;
 
 import com.ceiba.electrodomestico.dominio.dto.RegistroDto;
 import com.ceiba.electrodomestico.dominio.puerto.dao.DaoRegistro;
