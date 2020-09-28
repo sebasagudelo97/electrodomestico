@@ -2,7 +2,7 @@ package com.ceiba.electrodomestico.dominio.validador;
 
 import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionCampoObligatorio;
 
-public class ValidadorArgumento {
+public final class ValidadorArgumento {
 
     private ValidadorArgumento(){}
 

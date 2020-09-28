@@ -1,7 +1,6 @@
 package com.ceiba.electrodomestico.dominio.dto;
 
 import com.ceiba.electrodomestico.dominio.modelo.TipoElectrodomestico;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

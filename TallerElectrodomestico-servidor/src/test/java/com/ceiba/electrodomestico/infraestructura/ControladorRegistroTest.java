@@ -1,6 +1,7 @@
 package com.ceiba.electrodomestico.infraestructura;
 
 import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -67,7 +68,8 @@ public class ControladorRegistroTest {
         mockMvc.perform(get("/registro")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].nombreCliente", is("sebastian")));
+                .andExpect(jsonPath("$[0].nombreCliente", is("sebastian")))
+                .andDo(print());
     }
 
     @Test
