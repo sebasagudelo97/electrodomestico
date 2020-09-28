@@ -1,11 +1,14 @@
 package com.ceiba.electrodomestico.dominio.modelo;
 
+import com.ceiba.electrodomestico.dominio.validador.ValidadorArgumento;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 
 public class Factura {
 
+    private static final String CAMPO_OBLIGATORIO = "Este campo es obligatorio";
     private static final int CERO_INICIALIZADOR = 0;
     private static final long UNO_PARA_SUMAR_DIAS = 1l;
     private static final int DIAS_MAXIMOS = 5;
@@ -18,6 +21,9 @@ public class Factura {
     private Registro registro;
 
     public Factura(long id, double valorAPagar, double valorAdicional, LocalDate fechaActual, Registro registro) {
+        ValidadorArgumento.validarCampoObligatorio(fechaActual, CAMPO_OBLIGATORIO);
+        ValidadorArgumento.validarCampoObligatorio(registro, CAMPO_OBLIGATORIO);
+
         this.id = id;
         this.valorAPagar = valorAPagar;
         this.valorAdicional = valorAdicional;
