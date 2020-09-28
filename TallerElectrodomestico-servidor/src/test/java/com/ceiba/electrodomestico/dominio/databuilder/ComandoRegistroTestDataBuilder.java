@@ -11,7 +11,7 @@ public class ComandoRegistroTestDataBuilder {
     private static final String NOMBRE_CLIENTE= "sebastian";
     private static final String CEDULA_CLIENTE= "1036960221";
     private static final TipoElectrodomestico TIPO_ELECTRODOMESTICO= new TipoElectrodomesticoTestDataBuilder().build();
-    private static final LocalDate FECHA_INGRESO = LocalDate.now();
+    private static final LocalDate FECHA_INGRESO = LocalDate.of(2020,9,26);
     private static final LocalDate FECHA_SALIDA = null;
     private static final boolean ESTADO = false;
     private static final String TELEFONO = "3144568565";

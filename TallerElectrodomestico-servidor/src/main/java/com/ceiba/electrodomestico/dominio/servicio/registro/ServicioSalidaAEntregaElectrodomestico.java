@@ -5,11 +5,10 @@ import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionFechaSalidaNula;
 import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.electrodomestico.dominio.modelo.Registro;
 import com.ceiba.electrodomestico.dominio.puerto.repositorio.RepositorioRegistro;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
-@Service
+
 public class ServicioSalidaAEntregaElectrodomestico {
 
     private final RepositorioRegistro repositorioRegistro;
