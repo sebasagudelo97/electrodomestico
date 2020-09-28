@@ -9,7 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.ceiba.electrodomestico.TallerElectrodomesticoApplication;
 import com.ceiba.electrodomestico.aplicacion.comando.ComandoRegistro;
-import com.ceiba.electrodomestico.dominio.databuilder.ComandoRegistroTestDataBuilder;
+import com.ceiba.electrodomestico.dominio.databuilder.comando.ComandoRegistroTestDataBuilder;
 import com.ceiba.electrodomestico.infraestructura.repositoriojpa.RepositorioRegistroJPA;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;

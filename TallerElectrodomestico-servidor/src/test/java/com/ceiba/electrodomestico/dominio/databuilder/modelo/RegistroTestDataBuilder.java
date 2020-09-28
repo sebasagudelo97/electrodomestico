@@ -1,4 +1,4 @@
-package com.ceiba.electrodomestico.dominio.databuilder;
+package com.ceiba.electrodomestico.dominio.databuilder.modelo;
 
 import com.ceiba.electrodomestico.dominio.modelo.Registro;
 import com.ceiba.electrodomestico.dominio.modelo.TipoElectrodomestico;

@@ -1,6 +1,6 @@
 package com.ceiba.electrodomestico.dominio.modelo;
 
-import com.ceiba.electrodomestico.dominio.databuilder.FacturaTestDataBuilder;
+import com.ceiba.electrodomestico.dominio.databuilder.modelo.FacturaTestDataBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,6 @@
 package com.ceiba.electrodomestico.dominio.servicio.registro;
 
-import com.ceiba.electrodomestico.dominio.databuilder.RegistroTestDataBuilder;
+import com.ceiba.electrodomestico.dominio.databuilder.modelo.RegistroTestDataBuilder;
 import com.ceiba.electrodomestico.dominio.modelo.Registro;
 import com.ceiba.electrodomestico.dominio.puerto.repositorio.RepositorioRegistro;
 import org.junit.jupiter.api.Assertions;

@@ -1,6 +1,7 @@
-package com.ceiba.electrodomestico.dominio.databuilder;
+package com.ceiba.electrodomestico.dominio.databuilder.comando;
 
 import com.ceiba.electrodomestico.aplicacion.comando.ComandoRegistro;
+import com.ceiba.electrodomestico.dominio.databuilder.modelo.TipoElectrodomesticoTestDataBuilder;
 import com.ceiba.electrodomestico.dominio.modelo.TipoElectrodomestico;
 
 import java.time.LocalDate;

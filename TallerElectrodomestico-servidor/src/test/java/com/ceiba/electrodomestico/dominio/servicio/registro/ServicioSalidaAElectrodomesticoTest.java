@@ -1,6 +1,6 @@
 package com.ceiba.electrodomestico.dominio.servicio.registro;
 
-import com.ceiba.electrodomestico.dominio.databuilder.RegistroTestDataBuilder;
+import com.ceiba.electrodomestico.dominio.databuilder.modelo.RegistroTestDataBuilder;
 import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionFechaInvalida;
 import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionFechaSalidaNula;
 import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionValorInvalido;
