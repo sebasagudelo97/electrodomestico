@@ -1,1 +1,36 @@
-<p>crear-registro works!</p>
+<div class="jumbotron">
+    <h1 class="display-4">Crear Registro</h1>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombre Cliente</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre cliente">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Cedula</label>
+                <input type="text" class="form-control" id="cedula" placeholder="cedula">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Fecha Ingreso</label>
+                <input type="date" class="form-control" id="fecha-ingreso" placeholder="Fecha de Ingreso">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Telefono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="telefono">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <button type="submit" class="btn btn-danger">Volver</button>
+    </form>
+</div>
