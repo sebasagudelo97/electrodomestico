@@ -2,6 +2,7 @@ package com.ceiba.electrodomestico.dominio.modelo;
 
 import com.ceiba.electrodomestico.dominio.validador.ValidadorArgumento;
 
+
 public class TipoElectrodomestico {
 
     private static final String CAMPO_OBLIGATORIO = "Este campo es obligatorio";

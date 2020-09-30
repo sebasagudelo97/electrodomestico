@@ -1,36 +1,44 @@
 <div class="jumbotron">
     <h1 class="display-4">Crear Registro</h1>
-    <form>
+    <form [formGroup]="registroForm" (ngSubmit)="crearRegistro()">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Nombre Cliente</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre cliente">
+                <input type="text" class="form-control" id="nombre" name="nombreCliente" placeholder="Nombre cliente"
+                    formControlName="nombreCliente">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Cedula</label>
-                <input type="text" class="form-control" id="cedula" placeholder="cedula">
+                <input type="text" class="form-control" id="cedula" name="cedulaCliente" formControlName="cedulaCliente"
+                    placeholder="cedula">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Fecha Ingreso</label>
-                <input type="date" class="form-control" id="fecha-ingreso" placeholder="Fecha de Ingreso">
+                <input type="date" class="form-control" id="fecha-ingreso" name="fechaIngreso"
+                    formControlName="fechaIngreso" placeholder="Fecha de Ingreso">
             </div>
             <div class="form-group col-md-6">
-                <label for="inputPassword4">Telefono</label>
-                <input type="text" class="form-control" id="telefono" placeholder="telefono">
+                <label for="inputState">Tipo Electrodomestico</label>
+                <select id="inputState" class="form-control" name="tipoElectrodomestico" formControlName = "tipoElectrodomestico">
+                    <option [ngValue]="null" disabled>Seleccione un tipo de electrodomestico</option>
+                    <option *ngFor = "let tipoElectrodomestico of tipoElectrodomestico " [ngValue] = "tipoElectrodomestico" >
+                        {{tipoElectrodomestico.descripcion}} , Marca: {{tipoElectrodomestico.marca}}
+                    </option>
+                </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
+                <label for="inputPassword4">Telefono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono"
+                    placeholder="telefono">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Crear</button>
-        <button type="submit" class="btn btn-danger">Volver</button>
+        <div class="botones">
+            <button type="submit" class="btn btn-primary" (ngSubmit)="crearRegistro()">Crear</button>
+            <button type="submit" class="btn btn-danger">Volver</button>
+        </div>
     </form>
 </div>

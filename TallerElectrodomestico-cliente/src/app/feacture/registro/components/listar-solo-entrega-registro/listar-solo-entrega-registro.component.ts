@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Registro } from '../../shared/model/registro';
+import { RegistroService } from '../../shared/service/registro.service';
 
 @Component({
   selector: 'app-listar-solo-entrega-registro',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarSoloEntregaRegistroComponent implements OnInit {
 
-  constructor() { }
+  registro:Registro[];
+
+  constructor(protected servicioRegistro: RegistroService) { }
 
   ngOnInit(): void {
+    this.listarEntrega();
+  }
+
+  public listarEntrega(): void{
+    this.servicioRegistro.listarTodoParaEntrega()
+    .subscribe(
+      registros => this.registro = registros
+    );
   }
 
 }

@@ -1,0 +1,46 @@
+<<div class="jumbotron">
+    <h1 class="display-4">Actualizar</h1>
+    <form [formGroup]="registroForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombre Cliente</label>
+                    <h5>{{registro.nombreCliente}}</h5>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Cedula</label>
+                    <h5>{{registro.cedulaCliente}}</h5>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Fecha Ingreso</label>
+                    <h5>{{registro.fechaIngreso}}</h5>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Tipo electrodomestico</label>
+                <h5>{{registro.tipoElectrodomestico.descripcion}}</h5>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Telefono</label>
+                    <h5>{{registro.telefono}}</h5>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Fechas salida</label>
+                <input type="date" class="form-control" id="nombre" name="fechaSalida" placeholder="fecha Salida"
+                    formControlName="fechaSalida">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">valor a pagar</label>
+                <input type="text" class="form-control" id="cedula" name="valorPagar" formControlName="valorPagar"
+                    placeholder="valor a Pagar">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="actualizar()" >Actualizar</button>
+        </div>
+    </form>
+</div>
