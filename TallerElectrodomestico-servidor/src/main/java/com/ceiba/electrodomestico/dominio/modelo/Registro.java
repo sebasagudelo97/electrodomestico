@@ -15,10 +15,12 @@ public class Registro {
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
     private boolean estadoRegistro;
+    private boolean estadoFactura;
     private String telefono;
     private double valorPagar;
 
-    public Registro(long id, String nombreCliente, String cedulaCliente, TipoElectrodomestico tipoElectrodomestico, LocalDate fechaIngreso, LocalDate fechaSalida, boolean estadoRegistro, String telefono, double valorPagar) {
+
+    public Registro(long id, String nombreCliente, String cedulaCliente, TipoElectrodomestico tipoElectrodomestico, LocalDate fechaIngreso, LocalDate fechaSalida, boolean estadoFactura, boolean estadoRegistro, String telefono, double valorPagar) {
         ValidadorArgumento.validarCampoObligatorio(nombreCliente, EXCEPCION_CAMPO_OBLIGATORIO);
         ValidadorArgumento.validarCampoObligatorio(cedulaCliente, EXCEPCION_CAMPO_OBLIGATORIO);
         ValidadorArgumento.validarCampoObligatorio(tipoElectrodomestico, EXCEPCION_CAMPO_OBLIGATORIO);
@@ -32,6 +34,7 @@ public class Registro {
         this.tipoElectrodomestico = tipoElectrodomestico;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
+        this.estadoFactura = estadoFactura;
         this.estadoRegistro = estadoRegistro;
         this.telefono = telefono;
         this.valorPagar = valorPagar;
@@ -71,5 +74,9 @@ public class Registro {
 
     public double getValorPagar() {
         return valorPagar;
+    }
+
+    public boolean isEstadoFactura() {
+        return estadoFactura;
     }
 }

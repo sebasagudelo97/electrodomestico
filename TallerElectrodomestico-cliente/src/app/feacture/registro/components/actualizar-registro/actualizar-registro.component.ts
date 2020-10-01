@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TipoElectrodomestico } from 'src/app/shared/model/TipoElectrodomestico';
+import { TipoElectrodomestico } from 'src/app/feacture/components/tipo-electrodomestico/model/TipoElectrodomestico';
 import Swal from 'sweetalert2';
 import { Registro } from '../../shared/model/registro';
 import { RegistroService } from '../../shared/service/registro.service';

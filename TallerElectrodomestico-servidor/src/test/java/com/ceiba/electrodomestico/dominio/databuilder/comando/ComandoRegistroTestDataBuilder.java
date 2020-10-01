@@ -15,6 +15,7 @@ public class ComandoRegistroTestDataBuilder {
     private static final LocalDate FECHA_INGRESO = LocalDate.of(2020,9,26);
     private static final LocalDate FECHA_SALIDA = null;
     private static final boolean ESTADO = false;
+    private static final boolean ESTADO_FACTURA= false;
     private static final String TELEFONO = "3144568565";
     private static final double VALOR_PAGAR = 0;
 
@@ -24,6 +25,7 @@ public class ComandoRegistroTestDataBuilder {
     private TipoElectrodomestico tipoElectrodomestico;
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
+    private boolean estadoFactura;
     private boolean estado;
     private String telefono;
     private double valorPagar;
@@ -35,12 +37,13 @@ public class ComandoRegistroTestDataBuilder {
         this.tipoElectrodomestico = TIPO_ELECTRODOMESTICO;
         this.fechaIngreso = FECHA_INGRESO;
         this.fechaSalida = FECHA_SALIDA;
+        this.estadoFactura = ESTADO_FACTURA;
         this.estado = ESTADO;
         this.telefono = TELEFONO;
         this.valorPagar = VALOR_PAGAR;
     }
 
     public ComandoRegistro build(){
-        return new ComandoRegistro(this.id,this.nombreCliente, this.cedulaCliente, this.tipoElectrodomestico,this.fechaIngreso,this.fechaSalida,this.estado,this.telefono,this.valorPagar);
+        return new ComandoRegistro(this.id,this.nombreCliente, this.cedulaCliente, this.tipoElectrodomestico,this.fechaIngreso,this.fechaSalida, this.estadoFactura, this.estado,this.telefono,this.valorPagar);
     }
 }

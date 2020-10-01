@@ -11,9 +11,13 @@ import java.util.List;
 
 public interface RepositorioRegistroJPA extends JpaRepository<EntidadRegistro, Serializable> {
 
-    @Query(value = "select * from registro where registro.id = :id ", nativeQuery = true)
-    EntidadRegistro obtenerRegistroPorId(@Param("id") long id);
+    @Query(value = "select * from registro where estado_registro = false", nativeQuery = true)
+    List<EntidadRegistro> listarTodoNoEntrega();
 
-    @Query(value = "select * from registro where estado_registro = true", nativeQuery = true)
+
+    @Query(value = "select * from registro where (estado_registro = true) and (estado_factura = false)", nativeQuery = true)
     List<EntidadRegistro> obtenerRegistrosListoParaEntregar();
+
+    @Query(value = "select * from registro where registro.id =:id", nativeQuery = true)
+    EntidadRegistro buscarRegistroPorId(@Param("id") long id);
 }

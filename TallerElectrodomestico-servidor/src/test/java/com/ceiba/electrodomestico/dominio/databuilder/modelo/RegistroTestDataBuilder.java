@@ -13,6 +13,7 @@ public class RegistroTestDataBuilder {
     private static final TipoElectrodomestico TIPO_ELECTRODOMESTICO= new TipoElectrodomesticoTestDataBuilder().build();
     private static final LocalDate FECHA_INGRESO = LocalDate.now();
     private static final LocalDate FECHA_SALIDA = null;
+    private static final boolean ESTADO_FACTURA=false;
     private static final boolean ESTADO = false;
     private static final String TELEFONO = "3144568565";
     private static final double VALOR_PAGAR = 0;
@@ -23,6 +24,7 @@ public class RegistroTestDataBuilder {
     private TipoElectrodomestico tipoElectrodomestico;
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
+    private boolean estadoFactura;
     private boolean estado;
     private String telefono;
     private double valorPagar;
@@ -34,6 +36,7 @@ public class RegistroTestDataBuilder {
         this.tipoElectrodomestico = TIPO_ELECTRODOMESTICO;
         this.fechaIngreso = FECHA_INGRESO;
         this.fechaSalida = FECHA_SALIDA;
+        this.estadoFactura = ESTADO_FACTURA;
         this.estado = ESTADO;
         this.telefono = TELEFONO;
         this.valorPagar = VALOR_PAGAR;
@@ -69,6 +72,11 @@ public class RegistroTestDataBuilder {
         return this;
     }
 
+    public RegistroTestDataBuilder conEstadoFactura(boolean estadoFactura){
+        this.estadoFactura = estadoFactura;
+        return this;
+    }
+
     public RegistroTestDataBuilder conEstado(boolean estado){
         this.estado = estado;
         return this;
@@ -85,7 +93,7 @@ public class RegistroTestDataBuilder {
     }
 
     public Registro build(){
-        return new Registro(this.id,this.nombreCliente,this.cedulaCliente,this.tipoElectrodomestico,this.fechaIngreso,this.fechaSalida,this.estado,this.telefono,this.valorPagar
+        return new Registro(this.id,this.nombreCliente,this.cedulaCliente,this.tipoElectrodomestico,this.fechaIngreso,this.fechaSalida, this.estadoFactura,this.estado,this.telefono,this.valorPagar
                 );
     }
 }

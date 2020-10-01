@@ -10,6 +10,9 @@ const routes: Routes = [
     path: 'registro', loadChildren: () => import('./feacture/registro/registro.module').then(mod => mod.RegistroModule)
   },
   {
+    path: 'factura', loadChildren: () => import('./feacture/factura/factura.module').then(mod => mod.FacturaModule)
+  },
+  {
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {

@@ -3,7 +3,6 @@ import { Registro } from '../../shared/model/registro';
 import { RegistroService } from '../../shared/service/registro.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {  FormGroup } from '@angular/forms';
-import { TipoElectrodomestico } from 'src/app/shared/model/TipoElectrodomestico';
 
 @Component({
   selector: 'app-listar-todo-registro',
@@ -14,9 +13,6 @@ export class ListarTodoRegistroComponent implements OnInit {
 
   public registro: Registro[];
    registroTemporal: Registro; 
-  
-  registroNuevo: Registro;
-  tipoElectrodomestico: TipoElectrodomestico;
   registroForm: FormGroup;
   constructor(private listarTodoService: RegistroService,config: NgbModalConfig, private modalService: NgbModal) { }
 

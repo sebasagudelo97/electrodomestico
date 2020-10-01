@@ -21,7 +21,7 @@ public class DaoRegistroPostgreSQL implements DaoRegistro {
 
     @Override
     public List<RegistroDto> listarRegistro() {
-        List<EntidadRegistro> entidadRegistro = repositorioRegistroJPA.findAll();
+        List<EntidadRegistro> entidadRegistro = repositorioRegistroJPA.listarTodoNoEntrega();
         List<RegistroDto> registroDto = new ArrayList<>();
         return ConvertidorRegistro.convertirListaRegistroEntidadADto(entidadRegistro,registroDto);
     }
@@ -33,4 +33,8 @@ public class DaoRegistroPostgreSQL implements DaoRegistro {
         return ConvertidorRegistro.convertirListaRegistroEntidadADto(entidadRegistro,registroDto);
     }
 
+    @Override
+    public EntidadRegistro buscarPorId(long id) {
+        return repositorioRegistroJPA.buscarRegistroPorId(id);
+    }
 }

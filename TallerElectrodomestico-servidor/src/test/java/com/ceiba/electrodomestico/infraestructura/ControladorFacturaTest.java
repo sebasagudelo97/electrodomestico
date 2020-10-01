@@ -1,6 +1,9 @@
 package com.ceiba.electrodomestico.infraestructura;
 
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.ceiba.electrodomestico.TallerElectrodomesticoApplication;
@@ -52,5 +55,14 @@ public class ControladorFacturaTest {
         mockMvc.perform(post("/factura").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoFactura)))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void listarTodoTest() throws Exception{
+        mockMvc.perform(get("/factura")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].valorAPagar", is(5250.0)))
+                .andDo(print());
     }
 }

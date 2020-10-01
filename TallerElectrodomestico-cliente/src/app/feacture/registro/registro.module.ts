@@ -8,10 +8,11 @@ import { ListarTodoRegistroComponent } from './components/listar-todo-registro/l
 import { ListarSoloEntregaRegistroComponent } from './components/listar-solo-entrega-registro/listar-solo-entrega-registro.component';
 import { RegistroService } from './shared/service/registro.service';
 import { ActualizarRegistroComponent } from './components/actualizar-registro/actualizar-registro.component';
+import { CrearFacturaComponent } from '../factura/components/crear-factura/crear-factura.component';
 
 
 @NgModule({
-  declarations: [CrearRegistroComponent, ListarTodoRegistroComponent, ListarSoloEntregaRegistroComponent, ActualizarRegistroComponent],
+  declarations: [CrearRegistroComponent, ListarTodoRegistroComponent, ListarSoloEntregaRegistroComponent, ActualizarRegistroComponent, CrearFacturaComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RegistroService } from '../../shared/service/registro.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { TipoElectrodomesticoService } from 'src/app/shared/service/tipo-electrodomestico.service';
-import { TipoElectrodomestico } from 'src/app/shared/model/TipoElectrodomestico';
+import { TipoElectrodomestico } from 'src/app/feacture/components/tipo-electrodomestico/model/TipoElectrodomestico';
+import { TipoElectrodomesticoService } from 'src/app/feacture/components/tipo-electrodomestico/service/tipo-electrodomestico.service';
 
 @Component({
   selector: 'app-crear-registro',

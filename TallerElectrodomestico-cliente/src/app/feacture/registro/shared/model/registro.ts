@@ -1,4 +1,4 @@
-import { TipoElectrodomestico } from 'src/app/shared/model/TipoElectrodomestico';
+import { TipoElectrodomestico } from 'src/app/feacture/components/tipo-electrodomestico/model/TipoElectrodomestico';
 
 export class Registro {
     id?: number;
@@ -7,6 +7,7 @@ export class Registro {
     tipoElectrodomestico: TipoElectrodomestico;
     fechaIngreso: Date;
     fechaSalida: Date;
+    estadoFactura: boolean;
     estado: boolean;
     telefono: string;
     valorPagar: number;

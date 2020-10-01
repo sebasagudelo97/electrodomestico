@@ -21,6 +21,7 @@ public class ComandoRegistro {
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
     private boolean estadoRegistro;
+    private boolean estadoFactura;
     private String telefono;
     private double valorPagar;
 }

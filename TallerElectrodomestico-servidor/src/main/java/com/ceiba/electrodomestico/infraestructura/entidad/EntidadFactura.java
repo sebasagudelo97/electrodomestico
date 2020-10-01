@@ -33,6 +33,6 @@ public class EntidadFactura {
     private double valorAdicional;
 
     @OneToOne
-    @JoinColumn(name = "in_codigo")
+    @JoinColumn
     private EntidadRegistro entidadRegistro;
 }

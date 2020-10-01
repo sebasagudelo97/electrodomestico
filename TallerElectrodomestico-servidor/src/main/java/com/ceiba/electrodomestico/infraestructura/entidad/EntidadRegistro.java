@@ -41,6 +41,9 @@ public class EntidadRegistro {
     private LocalDate fechaSalida;
 
     @Column(nullable = false)
+    private boolean estadoFactura;
+
+    @Column(nullable = false)
     private boolean estadoRegistro;
 
     @Column(nullable = false)

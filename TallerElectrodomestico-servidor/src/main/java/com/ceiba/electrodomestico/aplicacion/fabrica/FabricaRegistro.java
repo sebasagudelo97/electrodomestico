@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class FabricaRegistro {
 
     public Registro crear(ComandoRegistro comandoRegistro){
-        return new Registro(comandoRegistro.getId(), comandoRegistro.getNombreCliente(),comandoRegistro.getCedulaCliente(),comandoRegistro.getTipoElectrodomestico(),comandoRegistro.getFechaIngreso(),comandoRegistro.getFechaSalida(),comandoRegistro.isEstadoRegistro(),comandoRegistro.getTelefono(),comandoRegistro.getValorPagar());
+        return new Registro(comandoRegistro.getId(), comandoRegistro.getNombreCliente(),comandoRegistro.getCedulaCliente(),comandoRegistro.getTipoElectrodomestico(),comandoRegistro.getFechaIngreso(),comandoRegistro.getFechaSalida(), comandoRegistro.isEstadoFactura(), comandoRegistro.isEstadoRegistro(),comandoRegistro.getTelefono(),comandoRegistro.getValorPagar());
     }
 }

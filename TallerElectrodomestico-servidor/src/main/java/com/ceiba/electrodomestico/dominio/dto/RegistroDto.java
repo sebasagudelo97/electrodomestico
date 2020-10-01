@@ -18,6 +18,7 @@ public class RegistroDto {
     private TipoElectrodomestico tipoElectrodomestico;
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
+    private boolean estadoFactura;
     private boolean estadoRegistro;
     private String telefono;
     private double valorPagar;

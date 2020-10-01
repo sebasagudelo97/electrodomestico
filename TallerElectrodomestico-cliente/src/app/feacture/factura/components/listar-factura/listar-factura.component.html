@@ -1,0 +1,38 @@
+<div class="card border-primary mb-3">
+    <div class="card-body text-primary">
+        <h3 class="display-4">Facturas</h3>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>id</th>
+                    <th>Nombre cliente</th>
+                    <th>Numero cedula</th>
+                    <th>Tipo Electrodomestico</th>
+                    <th>Valor a pagar</th>
+                    <th>valor Adicional</th>
+                    <th>Fecha de facturacion</th>
+                    <th>fecha de ingreso</th>
+                    <th>fecha de salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let factura of factura" >
+                    <td>{{ factura.id }}</td>
+                    <td>{{ factura.registroDto.nombreCliente }}</td>
+                    <td>{{ factura.registroDto.cedulaCliente }}</td>
+                    <td>{{ factura.registroDto.tipoElectrodomestico.descripcion }}</td>
+                    <td>{{ factura.registroDto.valorPagar }}</td>
+                    <td>{{ factura.valorAdicional }}</td>
+                    <td>{{ factura.fechaActual }}</td>
+                    <td>{{ factura.registroDto.fechaIngreso}}</td>
+                    <td>{{ factura.registroDto.fechaSalida }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-danger" [routerLink]="['/home']"
+                id="btnVolverPrincipal">Volver</button>
+        </div>
+    </div>
+</div>
