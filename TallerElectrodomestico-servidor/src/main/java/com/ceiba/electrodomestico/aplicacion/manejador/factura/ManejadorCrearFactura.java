@@ -4,7 +4,7 @@ import com.ceiba.electrodomestico.aplicacion.comando.ComandoFactura;
 import com.ceiba.electrodomestico.aplicacion.fabrica.FabricaFactura;
 import com.ceiba.electrodomestico.dominio.modelo.Factura;
 import com.ceiba.electrodomestico.dominio.servicio.factura.ServicioCrearFactura;
-import com.ceiba.electrodomestico.dominio.servicio.registro.ServicioEstadoDeFactura;
+import com.ceiba.electrodomestico.dominio.servicio.factura.ServicioEstadoDeFactura;
 import org.springframework.stereotype.Component;
 
 @Component

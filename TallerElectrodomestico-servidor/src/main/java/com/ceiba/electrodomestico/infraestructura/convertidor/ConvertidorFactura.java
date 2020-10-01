@@ -6,7 +6,7 @@ import org.modelmapper.ModelMapper;
 
 import java.util.List;
 
-public class ConvertidorFactura {
+public final class ConvertidorFactura {
 
     private ConvertidorFactura(){}
 
