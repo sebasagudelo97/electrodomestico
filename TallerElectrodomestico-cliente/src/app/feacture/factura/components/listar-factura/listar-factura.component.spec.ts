@@ -19,7 +19,4 @@ describe('ListarFacturaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
