@@ -3,6 +3,7 @@ import { Registro } from '../../shared/model/registro';
 import { RegistroService } from '../../shared/service/registro.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {  FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-todo-registro',
@@ -11,22 +12,15 @@ import {  FormGroup } from '@angular/forms';
 })
 export class ListarTodoRegistroComponent implements OnInit {
 
-  public registro: Registro[];
+  public registro: Observable<Registro[]>;
    registroTemporal: Registro; 
   registroForm: FormGroup;
-  constructor(private listarTodoService: RegistroService,config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private registroService: RegistroService,config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.listarTodo();
+    this.registro = this.registroService.listarTodo();
   }
-
-  public listarTodo(): void{
-    this.listarTodoService.listarTodo()    
-    .subscribe(
-      registros => this.registro = registros
-    )
-  }
-
+  
   public open(content, registro: Registro): void {
     this.enviarRegistroPorServicio(registro);
     this.modalService.open(content);    
@@ -34,6 +28,6 @@ export class ListarTodoRegistroComponent implements OnInit {
 
   public enviarRegistroPorServicio (registro: Registro):void{
     this.registroTemporal = registro;
-    this.listarTodoService.registro = this.registroTemporal;
+    this.registroService.registro = this.registroTemporal;
   }
 }

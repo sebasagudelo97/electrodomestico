@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import { Registro } from '../../shared/model/registro';
 import { RegistroService } from '../../shared/service/registro.service';
 
@@ -10,7 +11,7 @@ import { RegistroService } from '../../shared/service/registro.service';
 })
 export class ListarSoloEntregaRegistroComponent implements OnInit {
 
-  registro:Registro[];
+  public registro: Observable<Registro[]>;
 
   constructor(protected servicioRegistro: RegistroService,config: NgbModalConfig, private modalService: NgbModal) { }
 
@@ -18,11 +19,8 @@ export class ListarSoloEntregaRegistroComponent implements OnInit {
     this.listarEntrega();
   }
 
-  public listarEntrega(): void{
-    this.servicioRegistro.listarTodoParaEntrega()
-    .subscribe(
-      registros => this.registro = registros
-    );
+  public listarEntrega(): void{  
+      this.registro = this.servicioRegistro.listarTodoParaEntrega();    
   }
 
   public open(content, registro: Registro): void {

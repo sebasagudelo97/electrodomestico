@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Factura } from '../../shared/model/Factura';
 import { FacturaService } from '../../shared/service/factura.service';
 
@@ -9,19 +10,14 @@ import { FacturaService } from '../../shared/service/factura.service';
 })
 export class ListarFacturaComponent implements OnInit {
 
-  factura: Factura[];
+  factura: Observable<Factura[]>;
 
   constructor(private facturaService: FacturaService) { }
 
   ngOnInit(): void {
-    this.listar();
+    this.factura = this.facturaService.listarTodo();
   }
 
-  public listar(){
-    this.facturaService.listarTodo()
-    .subscribe(
-      facturas => this.factura = facturas
-    )
-  }
+  
 
 }

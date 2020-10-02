@@ -27,8 +27,8 @@ describe('TipoElectrodomesticoService', () => {
 
   it('Debera listar los tipos de electrodomestico', () => {
     const dummyTipoElectrodomesticos = [
-      new TipoElectrodomestico(),
-      new TipoElectrodomestico()
+      new TipoElectrodomestico(1,"ccc","licuadora"),
+      new TipoElectrodomestico(2,"ccc","licuadora")
     ];
     service.listarElectrodomestico().subscribe(tipoElectrodomesticos => {
       expect(tipoElectrodomesticos.length).toBe(2);

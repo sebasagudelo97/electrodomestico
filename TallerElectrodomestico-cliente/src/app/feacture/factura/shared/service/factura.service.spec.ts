@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Factura } from '../model/Factura';
 import { HttpResponse } from '@angular/common/http';
+import { Registro } from 'src/app/feacture/registro/shared/model/registro';
 
 describe('FacturaService', () => {
   let service: FacturaService;
@@ -26,7 +27,7 @@ describe('FacturaService', () => {
   });
 
   it('Debera crear una factura', () => {
-    const dummyFactura =  new Factura();
+    const dummyFactura =  new Factura(1,new Date(),250,new Registro(2,'sebastian','1155',null,new Date(),new Date(),false,false,'65665',0));
     service.crearFactura(dummyFactura).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
@@ -37,7 +38,8 @@ describe('FacturaService', () => {
 
   it('Debera listar las facturas', () => {
     const dummyFacturas = [
-      new Factura(), new Factura()
+      new Factura(1,new Date(),250,new Registro(1,'sebastian','1155',null,new Date(),new Date(),false,false,'65665',0))
+      , new Factura(1,new Date(),250,new Registro(2,'sebastian','1155',null,new Date(),new Date(),false,false,'65665',0))
     ];
     service.listarTodo().subscribe(facturas => {
       expect(facturas.length).toBe(2);

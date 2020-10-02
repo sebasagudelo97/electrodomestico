@@ -43,7 +43,6 @@ export class ActualizarRegistroComponent implements OnInit {
 
   actualizar():void{
     this.registroService.actualizar(this.registro.id, this.registroForm.value).subscribe(registro => {
-      this.router.navigate(['/home']);
       Swal.fire({
         position:'center',
         icon:'success',

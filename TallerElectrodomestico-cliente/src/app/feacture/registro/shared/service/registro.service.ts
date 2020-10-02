@@ -17,7 +17,7 @@ export class RegistroService {
   }
 
   public listarTodo(){
-    return this.http.doGet<Registro[]>(`${environment.endpoint}registro`)
+    return this.http.doGet<Registro[]>(`${environment.endpoint}registro`,this.http.optsName('consultar productos en proceso'));
   }
 
   public actualizar(id:number, registro:Registro){
@@ -25,7 +25,7 @@ export class RegistroService {
   }
 
   public listarTodoParaEntrega(){
-    return this.http.doGet<Registro[]>(`${environment.endpoint}registro/entrega`)
+    return this.http.doGet<Registro[]>(`${environment.endpoint}registro/entrega`, this.http.optsName('consultar producto ya para entrega'))
   }
   
 }

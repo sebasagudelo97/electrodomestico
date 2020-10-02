@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let factura of factura" >
+                <tr *ngFor="let factura of factura | async" >
                     <td>{{ factura.id }}</td>
                     <td>{{ factura.registroDto.nombreCliente }}</td>
                     <td>{{ factura.registroDto.cedulaCliente }}</td>

@@ -10,7 +10,7 @@ public class FacturaTest {
     private static final int VALOR_ESPERADO = 11;
     private static final double VALOR_ESPERADO_CON_AUMENTOS = 5250;
     private static final double VALOR_ESPERADO_SIN_AUMENTO = 5000;
-    private static final LocalDate FECHA_ACTUAL = LocalDate.of(2020,10,7);
+    private static final LocalDate FECHA_ACTUAL = LocalDate.of(2020, 9, 27);
 
     @Test
     public void calcularDiasEntreFechasTest(){

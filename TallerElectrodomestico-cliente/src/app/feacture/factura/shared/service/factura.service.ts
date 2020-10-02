@@ -15,6 +15,6 @@ export class FacturaService {
   }
 
   public listarTodo(){
-    return this.http.doGet<Factura[]>(`${environment.endpoint}factura`)
+    return this.http.doGet<Factura[]>(`${environment.endpoint}factura`, this.http.optsName('Listar las facturas'))
   }
 }

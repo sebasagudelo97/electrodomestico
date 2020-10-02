@@ -62,7 +62,7 @@ public class ControladorFacturaTest {
         mockMvc.perform(get("/factura")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].valorAPagar", is(5250.0)))
+                .andExpect(jsonPath("$[0].valorAPagar", is(5000.0)))
                 .andDo(print());
     }
 }

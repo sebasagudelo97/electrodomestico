@@ -10,8 +10,8 @@ public class FacturaTestDataBuilder {
     private static final long ID = 1l;
     private static final double VALOR_A_PAGAR = 0;
     private static final double VALOR_ADICIONAL = 0;
-    private static final LocalDate FECHA_ACTUAL = LocalDate.of(2020, 9, 26);
-    private static final Registro REGISTRO = new RegistroTestDataBuilder().conFechaSalida(LocalDate.of(2020,10,9)).conValorPagar(5000).build();
+    private static final LocalDate FECHA_ACTUAL = LocalDate.of(2020,10,9);
+    private static final Registro REGISTRO = new RegistroTestDataBuilder().conFechaSalida(LocalDate.of(2020, 9, 26)).conValorPagar(5000).build();
 
     private long id;
     private double valorAPagar;

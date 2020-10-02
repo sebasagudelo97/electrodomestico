@@ -5,4 +5,11 @@ export class Factura{
     fechaActual: Date;
     valorAdicional:number;
     registroDto: Registro;
+
+    constructor(id:number,fechaActual:Date,valorAdicional:number,registroDto:Registro){
+        this.id=id;
+        this.fechaActual=fechaActual;
+        this.valorAdicional=valorAdicional;
+        this.registroDto=registroDto;
+    }
 }

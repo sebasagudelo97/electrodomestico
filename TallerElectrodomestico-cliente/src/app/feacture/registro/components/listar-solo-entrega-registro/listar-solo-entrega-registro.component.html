@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let registro of registro" >
+                <tr *ngFor="let registro of registro | async" >
                     <td>{{ registro.id }}</td>
                     <td>{{ registro.nombreCliente }}</td>
                     <td>{{ registro.cedulaCliente }}</td>
