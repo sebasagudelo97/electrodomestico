@@ -30,17 +30,17 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Fechas salida</label>
-                <input type="date" class="form-control" id="nombre" name="fechaSalida" placeholder="fecha Salida"
+                <input type="date" class="form-control" id="fecha-salida" name="fechaSalida" placeholder="fecha Salida"
                     formControlName="fechaSalida">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">valor a pagar</label>
-                <input type="text" class="form-control" id="cedula" name="valorPagar" formControlName="valorPagar"
+                <input type="text" class="form-control" id="valorPagar" name="valorPagar" formControlName="valorPagar"
                     placeholder="valor a Pagar">
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="actualizar()" >Actualizar</button>
+            <button type="button" class="btn btn-primary" id="actualizar" (click)="actualizar()" >Actualizar</button>
         </div>
     </form>
 </div>
