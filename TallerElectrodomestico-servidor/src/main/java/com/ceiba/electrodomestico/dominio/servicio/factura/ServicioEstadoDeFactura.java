@@ -3,7 +3,9 @@ package com.ceiba.electrodomestico.dominio.servicio.factura;
 import com.ceiba.electrodomestico.dominio.puerto.dao.DaoRegistro;
 import com.ceiba.electrodomestico.infraestructura.entidad.EntidadRegistro;
 import com.ceiba.electrodomestico.infraestructura.repositoriojpa.RepositorioRegistroJPA;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicioEstadoDeFactura {
 
     private final DaoRegistro daoRegistro;
