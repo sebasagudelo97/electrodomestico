@@ -34,30 +34,28 @@ public class ServicioSalidaAElectrodomesticoTest {
     @Test
     public void validarValorMenorOIgualACeroTest(){
         double valor = VALOR;
-        try {
-            this.servicioSalidaAEntregaElectrodomestico.validarValor(valor);
-        }catch (ExcepcionValorInvalido e){
-            Assertions.assertEquals(VALOR_INVALIDO, e.getMessage());
-        }
+
+        Assertions.assertThrows(ExcepcionValorInvalido.class,
+                () -> this.servicioSalidaAEntregaElectrodomestico.validarValor(valor),
+                VALOR_INVALIDO);
     }
 
     @Test
     public void validarFechaSalidaNulaTest(){
-        try {
-            this.servicioSalidaAEntregaElectrodomestico.validarFechaSalida(null);
-        }catch (ExcepcionFechaSalidaNula e){
-            Assertions.assertEquals(FECHA_SALIDA_NULA, e.getMessage());
-        }
+        LocalDate fechaSalida = null;
+
+        Assertions.assertThrows(ExcepcionFechaSalidaNula.class,
+                () -> this.servicioSalidaAEntregaElectrodomestico.validarFechaSalida(fechaSalida),
+                FECHA_SALIDA_NULA);
+
     }
 
     @Test
     public void actualizarYGuardarRegistroConFechaDeSalidaMenorALaFechaDeEntradaTest(){
         Registro registro = new RegistroTestDataBuilder().conFechaSalida(FECHA_SALIDA).build();
 
-        try {
-            this.servicioSalidaAEntregaElectrodomestico.actualizarYGuardarRegistro(registro);
-        }catch (ExcepcionFechaInvalida e){
-            Assertions.assertEquals(FECHA_INVALIDA, e.getMessage());
-        }
+        Assertions.assertThrows(ExcepcionFechaInvalida.class,
+                () -> this.servicioSalidaAEntregaElectrodomestico.actualizarYGuardarRegistro(registro),
+                FECHA_INVALIDA);
     }
 }

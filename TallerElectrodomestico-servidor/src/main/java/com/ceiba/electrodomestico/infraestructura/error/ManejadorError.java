@@ -1,9 +1,6 @@
 package com.ceiba.electrodomestico.infraestructura.error;
 
-import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionCampoObligatorio;
-import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionFechaInvalida;
-import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionFechaSalidaNula;
-import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionValorInvalido;
+import com.ceiba.electrodomestico.dominio.excepcion.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +22,7 @@ public class ManejadorError {
         CODIGO_ESTADO.put(ExcepcionFechaInvalida.class.getSimpleName(),HttpStatus.BAD_REQUEST.value());
         CODIGO_ESTADO.put(ExcepcionFechaSalidaNula.class.getSimpleName(),HttpStatus.BAD_REQUEST.value());
         CODIGO_ESTADO.put(ExcepcionValorInvalido.class.getSimpleName(),HttpStatus.BAD_REQUEST.value());
-
+        CODIGO_ESTADO.put(ExcepcionRegistroNulo.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
 
     @ExceptionHandler(Exception.class)

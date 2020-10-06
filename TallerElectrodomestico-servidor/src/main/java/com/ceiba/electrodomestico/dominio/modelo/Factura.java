@@ -22,7 +22,6 @@ public class Factura {
 
     public Factura(long id, double valorAPagar, double valorAdicional, LocalDate fechaActual, Registro registro) {
         ValidadorArgumento.validarCampoObligatorio(fechaActual, CAMPO_OBLIGATORIO);
-        ValidadorArgumento.validarCampoObligatorio(registro, CAMPO_OBLIGATORIO);
 
         this.id = id;
         this.valorAPagar = valorAPagar;

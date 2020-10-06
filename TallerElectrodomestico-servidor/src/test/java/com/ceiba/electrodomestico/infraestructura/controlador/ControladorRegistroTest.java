@@ -1,4 +1,4 @@
-package com.ceiba.electrodomestico.infraestructura;
+package com.ceiba.electrodomestico.infraestructura.controlador;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

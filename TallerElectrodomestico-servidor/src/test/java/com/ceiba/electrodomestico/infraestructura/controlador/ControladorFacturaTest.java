@@ -1,7 +1,15 @@
-package com.ceiba.electrodomestico.infraestructura;
+package com.ceiba.electrodomestico.infraestructura.controlador;
+
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.ceiba.electrodomestico.TallerElectrodomesticoApplication;
-import com.ceiba.electrodomestico.infraestructura.repositoriojpa.RepositorioTipoElectrodomesticoJPA;
+import com.ceiba.electrodomestico.aplicacion.comando.ComandoFactura;
+import com.ceiba.electrodomestico.dominio.databuilder.comando.ComandoFacturaTestDataBuilder;
+import com.ceiba.electrodomestico.infraestructura.repositoriojpa.RepositorioFacturaJPA;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,17 +24,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = TallerElectrodomesticoApplication.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ControladorTipoElectrodomesticoTest {
+public class ControladorFacturaTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
@@ -38,7 +40,8 @@ public class ControladorTipoElectrodomesticoTest {
     private MockMvc mockMvc;
 
     @Autowired
-    private RepositorioTipoElectrodomesticoJPA repositorioTipoElectrodomesticoJPA;
+    private RepositorioFacturaJPA repositorioFacturaJPA;
+
 
     @BeforeEach
     public void setUp(){
@@ -46,11 +49,20 @@ public class ControladorTipoElectrodomesticoTest {
     }
 
     @Test
+    public void guardarFacturaTest() throws Exception{
+        ComandoFactura comandoFactura = new ComandoFacturaTestDataBuilder().build();
+
+        mockMvc.perform(post("/factura").contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(comandoFactura)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
     public void listarTodoTest() throws Exception{
-        mockMvc.perform(get("/tipo-electrodomestico")
+        mockMvc.perform(get("/factura")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].marca", is("ccc")))
+                .andExpect(jsonPath("$[0].valorAPagar", is(5000.0)))
                 .andDo(print());
     }
 }

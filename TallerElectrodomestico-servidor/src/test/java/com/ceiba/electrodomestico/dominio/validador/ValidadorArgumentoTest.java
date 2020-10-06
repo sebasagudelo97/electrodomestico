@@ -1,6 +1,7 @@
 package com.ceiba.electrodomestico.dominio.validador;
 
 import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionCampoObligatorio;
+import org.assertj.core.api.Fail;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +11,9 @@ public class ValidadorArgumentoTest {
 
     @Test
     public void validarCampoObligatorioConArgumentoNuloTest(){
-        try {
-            ValidadorArgumento.validarCampoObligatorio(null, EXCEPCION_CAMPO_OBLIGATORIO);
-        }catch (ExcepcionCampoObligatorio e){
-            Assertions.assertEquals(EXCEPCION_CAMPO_OBLIGATORIO, e.getMessage());
-        }
+        Assertions.assertThrows(ExcepcionCampoObligatorio.class,
+                    () -> ValidadorArgumento.validarCampoObligatorio(null, EXCEPCION_CAMPO_OBLIGATORIO),
+                    EXCEPCION_CAMPO_OBLIGATORIO);
+
     }
 }
