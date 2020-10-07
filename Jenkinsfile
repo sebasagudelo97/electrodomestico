@@ -36,24 +36,30 @@ pipeline {
 
              }
         }
-	stage("Install dependencies") {
-                    steps {
-                        sh "npm ci"
-                    }
-                }
+	
 
-	stage("Build") {
-                    steps {
-                        sh "npm run build"
-                    }
-                }
-
-                stage("Lint") {
-                    steps {
-                        sh "npm run lint"
-                    }
-                }
-
+	stage("Install dependecias"){
+		steps{
+			dir("TallerElectrodomestico-cliente"){
+				sh "npm ci"
+			}
+		}
+	}
+	
+	stage("Construis front"){
+		steps{
+			dir("TallerElectrodomestico-cliente"){
+				sh "npm run build"
+			}
+		}
+	}
+	stage("run lint"){
+		steps{
+			dir("TallerElectrodomestico-cliente"){
+				sh "npm run lint"
+			}
+		}
+	}
         stage('Compile & Unit Tests Backend') {
               steps{
 
