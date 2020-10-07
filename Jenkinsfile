@@ -53,13 +53,6 @@ pipeline {
 			}
 		}
 	}
-	stage("run lint"){
-		steps{
-			dir("TallerElectrodomestico-cliente"){
-				sh "npm run lint"
-			}
-		}
-	}
         stage('Compile & Unit Tests Backend') {
               steps{
 
