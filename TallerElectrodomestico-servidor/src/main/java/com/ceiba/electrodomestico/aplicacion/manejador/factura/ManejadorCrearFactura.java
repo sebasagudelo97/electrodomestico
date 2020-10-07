@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import javax.transaction.Transactional;
 
 @Component
-@Transactional
 public class ManejadorCrearFactura {
 
     private final ServicioCrearFactura servicioCrearFactura;

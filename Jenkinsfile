@@ -36,8 +36,25 @@ pipeline {
 
              }
         }
+	stage("Install dependencies") {
+                    steps {
+                        sh "npm ci"
+                    }
+                }
 
-        stage('Compile & Unit Tests') {
+	stage("Build") {
+                    steps {
+                        sh "npm run build"
+                    }
+                }
+
+                stage("Lint") {
+                    steps {
+                        sh "npm run lint"
+                    }
+                }
+
+        stage('Compile & Unit Tests Backend') {
               steps{
 
                  echo "------------>Cleaning previous compilations<------------"
@@ -49,6 +66,21 @@ pipeline {
 		}
              }
         }
+	
+	stage('Unit test Frontend'){
+		steps{
+			dir("TallerElectrodomestico-cliente"){
+				sh "npm run test:coverage"
+			}
+		}
+	}
+	stage('End to end Frontend'){
+		steps{
+			dir("TallerElectrodomestico-cliente"){
+				sh "npm run e2e"
+			}
+		}
+	}
         stage('Static Code Analysis') {
       		steps {
         	echo '------------>Análisis de código estático<------------'

@@ -4,6 +4,8 @@ import com.ceiba.electrodomestico.dominio.excepcion.ExcepcionRegistroNulo;
 import com.ceiba.electrodomestico.dominio.modelo.Factura;
 import com.ceiba.electrodomestico.dominio.puerto.repositorio.RepositorioFactura;
 
+import javax.transaction.Transactional;
+
 public class ServicioCrearFactura {
 
     private static final String REGISTRO_NULO = "El registro no puede ser nulo";
@@ -20,6 +22,7 @@ public class ServicioCrearFactura {
         }
     }
 
+    @Transactional
     public void ejecutar(Factura factura){
         validarRegistroEnFacturaNoNulo(factura);
         factura.calcularValorAPagar();

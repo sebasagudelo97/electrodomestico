@@ -16,8 +16,6 @@ export class ListarFacturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.factura = this.facturaService.listarTodo();
-  }
-
-  
+  } 
 
 }

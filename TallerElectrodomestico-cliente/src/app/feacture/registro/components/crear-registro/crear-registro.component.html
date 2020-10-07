@@ -6,38 +6,76 @@
                 <label for="inputEmail4">Nombre Cliente</label>
                 <input type="text" class="form-control" id="nombre" name="nombreCliente" placeholder="Nombre cliente"
                     formControlName="nombreCliente">
+                <div *ngIf="formulario.nombreCliente.touched && formulario.nombreCliente.invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="formulario.nombreCliente.errors.required"> El nombre del cliente es requerido </div>
+                    <div *ngIf="formulario.nombreCliente.errors.pattern"> Solo se puede ingresar letras </div>
+                    <div *ngIf="formulario.nombreCliente.errors.minLength"> Minimo permitido</div>
+                    <div *ngIf="formulario.nombreCliente.errors.maxLength"> Maximo Permitido</div>
+                </div>
             </div>
+
+
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Cedula</label>
                 <input type="text" class="form-control" id="cedula" name="cedulaCliente" formControlName="cedulaCliente"
                     placeholder="cedula">
+                <div *ngIf="formulario.cedulaCliente.touched && formulario.cedulaCliente.invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="formulario.cedulaCliente.errors.required"> El nombre del cliente es requerido </div>
+                    <div *ngIf="formulario.cedulaCliente.errors.pattern"> Solo numeros </div>
+                </div>
             </div>
         </div>
+
+
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Fecha Ingreso</label>
                 <input type="date" class="form-control" id="fecha-ingreso" name="fechaIngreso"
-                    formControlName="fechaIngreso" placeholder="YYYY-MM-DD" >
+                    formControlName="fechaIngreso" placeholder="YYYY-MM-DD">
+                <div *ngIf="formulario.fechaIngreso.touched && formulario.fechaIngreso.invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="formulario.fechaIngreso.errors.required">La fecha es requerida </div>
+                </div>
             </div>
+
+
             <div class="form-group col-md-6">
                 <label for="inputState">Tipo Electrodomestico</label>
-                <select id="inputState" class="form-control" name="tipoElectrodomestico" formControlName = "tipoElectrodomestico">
+                <select id="inputState" class="form-control" name="tipoElectrodomestico"
+                    formControlName="tipoElectrodomestico">
                     <option [ngValue]="null" disabled>Seleccione un tipo de electrodomestico</option>
-                    <option class="seleccion" *ngFor = "let tipoElectrodomestico of tipoElectrodomestico " [ngValue] = "tipoElectrodomestico"  >
-                        {{tipoElectrodomestico.descripcion}} 
-                    </option>
+                    <option class="seleccion" *ngFor="let tipoElectrodomestico of tipoElectrodomestico "
+                        [ngValue]="tipoElectrodomestico">
+                        {{tipoElectrodomestico.descripcion}}
+                    </option>                    
                 </select>
+                <div *ngIf="formulario.tipoElectrodomestico.touched && formulario.tipoElectrodomestico.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formulario.tipoElectrodomestico.errors.required">El electrodomestico es requerido
+                        </div>
+                    </div>
             </div>
+
         </div>
+
+
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Telefono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono"
                     placeholder="telefono">
+                <div *ngIf="formulario.telefono.touched && formulario.telefono.invalid" class="alert alert-danger">
+                    <div *ngIf="formulario.telefono.errors.required">El telefono es requerido</div>
+                    <div *ngIf="formulario.telefono.errors.pattern"> Solo numeros </div>
+                </div>
             </div>
+
         </div>
         <div class="botones">
-            <button type="submit" id="crearRegistro" class="btn btn-primary" (ngSubmit)="crearRegistro()">Crear</button>
+            <button type="submit" id="crearRegistro" class="btn btn-primary" (ngSubmit)="crearRegistro()"
+                [disabled]="!registroForm.valid">Crear</button>
             <button type="submit" class="btn btn-danger">Volver</button>
         </div>
     </form>

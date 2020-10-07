@@ -32,15 +32,24 @@
                 <label for="inputEmail4">Fechas salida</label>
                 <input type="date" class="form-control" id="fecha-salida" name="fechaSalida" placeholder="fecha Salida"
                     formControlName="fechaSalida">
+                    <div *ngIf="formulario.fechaSalida.touched && formulario.fechaSalida.invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="formulario.fechaSalida.errors.required">La fecha de salida es requerida </div>
+                </div>
             </div>
+
             <div class="form-group col-md-6">
                 <label for="inputPassword4">valor a pagar</label>
                 <input type="text" class="form-control" id="valorPagar" name="valorPagar" formControlName="valorPagar"
                     placeholder="valor a Pagar">
+                    <div *ngIf="formulario.valorPagar.touched && formulario.valorPagar.invalid" class="alert alert-danger">
+                        <div *ngIf="formulario.valorPagar.errors.required">El valor a pagar es requerido</div>
+                        <div *ngIf="formulario.valorPagar.errors.pattern"> Solo numeros </div>
+                    </div>
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="actualizar" (click)="actualizar()" >Actualizar</button>
+            <button type="button" class="btn btn-primary" id="actualizar" (click)="actualizar()" [disabled]="!registroForm.valid">Actualizar</button>
         </div>
     </form>
 </div>
