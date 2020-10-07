@@ -69,7 +69,7 @@ pipeline {
 	stage('Unit test Frontend'){
 		steps{
 			dir("TallerElectrodomestico-cliente"){
-				sh "npm run test:coverage"
+				sh "npm run test"
 			}
 		}
 	}
